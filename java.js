@@ -9,7 +9,7 @@ sketch.addEventListener('mouseover', function (e) {
 //grid = document.querySelector('.sketchGrid');
 
 
-for (i=0; i<100; i++) {
+for (i=0; i<30; i++) {
     newGrid = document.createElement('div');
     newGrid.classList.add('box')
     grid = document.querySelector('.sketchGrid');
