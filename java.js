@@ -28,6 +28,10 @@ blackSketch.addEventListener('click', () => {
     })
 })
 
+rainbowSketch.addEventListener('mouseover', (e) => {
+    e.target.style.backgroundColor = "#" + (Math.floor(Math.random()*16777215).toString(16));
+})
+
 
 //Base settings to create grid divs
 newGrid = document.createElement('div');
