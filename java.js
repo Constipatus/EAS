@@ -5,9 +5,9 @@ sketch.addEventListener('mouseover', (e) => {
     e.target.style.backgroundColor = 'Black';
 });
 
-//Button to override black to randomized colros and back
+//Buttons to override black to randomized colros and back
 const rainbowSketch = document.querySelector('#randomColor');
-
+const blackSketch = document.querySelector('#blackColor');
 
 rainbowSketch.addEventListener('click', () => {
     sketch.removeEventListener('mouseover', (e) => {
@@ -18,7 +18,7 @@ rainbowSketch.addEventListener('click', () => {
     });
 });
 
-const blackSketch = document.querySelector('#blackColor');
+
 blackSketch.addEventListener('click', () => {
     sketch.removeEventListener('mouseover', (e) => {
         e.target.style.backgroundColor = "#" + (Math.floor(Math.random()*16777215).toString(16));
@@ -32,6 +32,7 @@ blackSketch.addEventListener('click', () => {
 //Base settings to create grid divs
 newGrid = document.createElement('div');
 grid = document.querySelector('.sketchGrid');
+
 
 //Base grid size
 let a = 30
@@ -65,7 +66,3 @@ newSize.addEventListener('click', () => {
         grid-template-rows: repeat(${a}, 1fr);`;
     gridSize ();
 })
-
-
-//Function to remove previous grid and create another based on player entry
-//function newGrid () {}
