@@ -15,13 +15,12 @@ a = 30
 
 //Create grid with input scales
 function gridSize () {
-    if (a>100){
+    if (a>100||a<6){
         return
-    } 
-    
+    };
     for (i=0; i<(a*a); i++) {
         newGrid = document.createElement('div');
-        newGrid.classList.add('box')
+        newGrid.classList.add('box');
         grid = document.querySelector('.sketchGrid');
         grid.appendChild(newGrid);
 }}
@@ -37,11 +36,11 @@ newSize.addEventListener('click', () => {
     newGrid ();
 })
 
-function newGrid () {
+function newGrid() {
     while (sketch.firstChild) {
         sketch.removeChild(sketch.firstChild)
-    }
+    };
     sketch.style.cssText = `grid-template-columns: repeat(${a}, 1fr); 
-        grid-template-rows: repeat(${a}, 1fr)`;
-    gridSize ()
+        grid-template-rows: repeat(${a}, 1fr);`;
+    gridSize ();
 }
