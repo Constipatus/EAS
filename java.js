@@ -12,10 +12,6 @@ grid = document.querySelector('.sketchGrid');
 //Base grid size
 a = 30
 
-//newSize.addEventListener('submit', function(e) {
-    //a = newSize.textContent
-//})
-
 
 //Create grid with input scales
 function gridSize () {
@@ -30,17 +26,22 @@ function gridSize () {
         grid.appendChild(newGrid);
 }}
 
-window.addEventListener('load',gridSize) 
+//Standard grid on window load-up
+window.addEventListener('load',gridSize)
 
 
-const newSize = document.getElementById('sizeSubmit').onSubmit = function () {newGrid()}
+//Function and parameters to set the new grid
+const newSize = document.getElementById('newSize');
+newSize.addEventListener('click', () => {
+    a = prompt ("Pick a size from 10-100");
+    newGrid ();
+})
+
 function newGrid () {
-    let oldGrid = document.querySelectorAll('.box');
-    oldGrid.forEach((e) => {
-        sketch.removeChild(e);
-    });
-    a = document.querySelector('sizeText');
-    sketch.cssStyleText = `grid-template-columns: repeat(${a}, 1fr)`;
-    sketch.cssStyleText = `grid-template-rows: repeat(${a}, 1fr)`;
+    while (sketch.firstChild) {
+        sketch.removeChild(sketch.firstChild)
+    }
+    sketch.style.cssText = `grid-template-columns: repeat(${a}, 1fr); 
+        grid-template-rows: repeat(${a}, 1fr)`;
     gridSize ()
 }
